@@ -20,8 +20,10 @@ export default defineConfig({
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     reporters: ['default'],
     coverage: {
-      reportsDirectory: '../../../coverage/projects/cli',
+      reporter: ['text', 'lcov'],
       provider: 'v8',
+      reportsDirectory: '../../../coverage/examples/projects/cli',
+      exclude: ['mocks/**', '**/types.ts'],
     },
   },
 });

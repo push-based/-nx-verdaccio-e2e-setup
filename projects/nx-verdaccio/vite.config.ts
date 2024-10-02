@@ -12,7 +12,6 @@ export default defineConfig({
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
   // },
-
   test: {
     globals: true,
     cache: { dir: '../../node_modules/.vitest' },
@@ -26,8 +25,10 @@ export default defineConfig({
       '../../testing/test-setup/src/lib/reset.mock.ts',
     ],
     coverage: {
-      reportsDirectory: '../../coverage/projects/build-env',
+      reporter: ['text', 'lcov'],
       provider: 'v8',
+      reportsDirectory: '../../coverage/nx-verdaccio/nx-verdaccio',
+      exclude: ['mocks/**', '**/types.ts'],
     },
   },
 });
